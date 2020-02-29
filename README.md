@@ -1,4 +1,4 @@
-# android_codingcafe
+# android_apps
 
 ### project 1: Chat - messaging app
   + login/register
