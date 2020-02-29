@@ -4,7 +4,8 @@
   + login/register
   + group chat
   + profile settings
-  + real time database
+  + real time database messaging
+  + cloud storage with firebase
   + picasso lazy loading
   + fragments adapter/ fragments activity
   
