@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_ground"
+    tools:context=".CustomerLoginRegisterActivity">
+
+    <TextView
+        android:id="@+id/customer_logreg_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_centerInParent="true"
+        android:text="Customer Login"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="true"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:id="@+id/customer_logreg_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/customer_logreg_status"
+        android:hint="Email..."
+        android:layout_marginHorizontal="50dp"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:id="@+id/customer_logreg_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/customer_logreg_email"
+        android:hint="Password..."
+        android:layout_marginHorizontal="50dp"
+        android:inputType="textPassword"
+        />
+
+    <Button
+        android:id="@+id/customer_logreg_login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/customer_logreg_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="#D7E451"
+        android:text="Login" />
+
+    <TextView
+        android:id="@+id/customer_logreg_register_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/customer_logreg_login_button"
+        android:layout_centerHorizontal="true"
+        android:text="Don't have an account ?"
+        android:textSize="17sp"
+        android:layout_marginTop="10dp"
+        android:textStyle="italic"/>
+
+    <Button
+        android:id="@+id/customer_logreg_register_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/customer_logreg_register_link"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorButtonRegister"
+        android:textColor="#FFFF"
+        android:text="Register"
+        android:paddingHorizontal="40dp"
+        android:visibility="invisible"/>
+
+
+
+
+</RelativeLayout>

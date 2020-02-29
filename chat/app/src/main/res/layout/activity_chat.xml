@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ChatActivity"
+    android:background="@android:color/darker_gray">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/chat_toolbar"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/custom_profile_image"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/profile_image"
+
+                android:cropToPadding="true"
+                android:layout_marginRight="10dp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="9dp">
+
+                <TextView
+                    android:id="@+id/custom_profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="user_name_display"
+                    android:textColor="@android:color/background_light"
+                    android:textStyle="bold"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/custom_user_last_seen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/custom_profile_name"
+                    android:text="last_seen"
+                    android:textColor="@android:color/background_light"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_message_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/chat_toolbar"
+        android:layout_above="@id/chat_linear_layout"/>
+
+    <RelativeLayout
+        android:id="@+id/chat_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/background_light"
+        android:orientation="horizontal"
+        >
+
+
+        <ImageButton
+            android:id="@+id/send_files_btn"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:src="@drawable/send_files"
+            android:layout_alignParentStart="true"
+            android:backgroundTint="@android:color/white"
+            />
+
+
+        <EditText
+            android:id="@+id/input_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="type message here..."
+            android:padding="15dp"
+            android:maxLines="5"
+            android:layout_toEndOf="@+id/send_files_btn"
+            android:layout_toStartOf="@+id/send_message_btn"
+            />
+
+
+        <ImageButton
+            android:id="@+id/send_message_btn"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/send_message"
+            android:layout_alignParentEnd="true"
+            android:backgroundTint="@android:color/white"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

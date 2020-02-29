@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "768095629576",
+    "firebase_url": "https://gruber-feb88.firebaseio.com",
+    "project_id": "gruber-feb88",
+    "storage_bucket": "gruber-feb88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768095629576:android:e69cb42aa227c21d4fbcbd",
+        "android_client_info": {
+          "package_name": "rattclub.com.gruber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768095629576-0k40ktpcjm7j972iv9co8d4t8c3ug64n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rattclub.com.gruber",
+            "certificate_hash": "145c231b0006e52e3b431d7b1474bf3833215e95"
+          }
+        },
+        {
+          "client_id": "768095629576-ifssdp6cdecf8mdc4mqd6jht2r4ldbjg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHa0mUNHVVk58rWs5vyRwOsJBfbtl_w-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768095629576-ifssdp6cdecf8mdc4mqd6jht2r4ldbjg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "554254449757",
+    "firebase_url": "https://ratchat-48d11.firebaseio.com",
+    "project_id": "ratchat-48d11",
+    "storage_bucket": "ratchat-48d11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554254449757:android:c554c34e16798764b4e1b4",
+        "android_client_info": {
+          "package_name": "ratclub.hexx.ratchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554254449757-slbmqbqu2lgjm3g4k0l21o917od28dhl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ratclub.hexx.ratchat",
+            "certificate_hash": "145c231b0006e52e3b431d7b1474bf3833215e95"
+          }
+        },
+        {
+          "client_id": "554254449757-de25gameu3j8i3o80gt1dg8v5qqlhqad.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1KJ3DYQHykXGoXgbcrBpW8IM9RQ2N2qA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554254449757-de25gameu3j8i3o80gt1dg8v5qqlhqad.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
