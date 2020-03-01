@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashActivity"
+    android:background="@drawable/background5">
+
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/applogo"/>
+
+    <TextView
+        android:id="@+id/app_slogan"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:textAlignment="center"
+        android:text="Buy yo snizzles with yo bizzles !!"
+        android:textColor="@android:color/holo_purple"
+        android:textSize="35sp"
+        android:textStyle="bold|italic" />
+
+
+</RelativeLayout>

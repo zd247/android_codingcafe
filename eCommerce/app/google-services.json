@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "259276379504",
+    "firebase_url": "https://ecommerce-af4ec.firebaseio.com",
+    "project_id": "ecommerce-af4ec",
+    "storage_bucket": "ecommerce-af4ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259276379504:android:b0b1de904dbdc84d702bb5",
+        "android_client_info": {
+          "package_name": "rattclub.eCommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259276379504-km4qrroiu7pal8ibpvhu3ge09go7kpbu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rattclub.eCommerce",
+            "certificate_hash": "145c231b0006e52e3b431d7b1474bf3833215e95"
+          }
+        },
+        {
+          "client_id": "259276379504-5sdvfq47cergeggit2fq5755emh49fkm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOt8oc2AkfnMYTMB2-pm9xHCsQ0nSNKFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "259276379504-5sdvfq47cergeggit2fq5755emh49fkm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
