@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout android:id="@+id/register_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background6"
     tools:context=".RegisterActivity">
+
+    <com.rey.material.widget.Switch
+        android:id="@+id/register_mode_switcher"
+        style="@style/Material.Widget.Switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="14dp"
+        android:gravity="center"
+        android:checked="false" />
 
     <ImageView
         android:id="@+id/register_app_logo"
@@ -14,6 +24,18 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:src="@drawable/applogo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_app_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textStyle="italic"
+        android:text="Register"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp"/>
+
 
     <EditText
         android:id="@+id/register_name_input"
@@ -27,7 +49,7 @@
         android:layout_marginRight="15dp"
         android:textStyle="italic"
         android:hint="Name"
-        android:inputType="number"
+        android:inputType="text"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
         android:textSize="19sp"
@@ -45,10 +67,29 @@
         android:layout_marginRight="15dp"
         android:textStyle="italic"
         android:hint="Phone Number"
+        android:inputType="phone"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="19sp"
+        />
+
+    <EditText
+        android:id="@+id/register_verify_code_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_name_input"
+        android:background="@drawable/inputs_design_login"
+        android:padding="20dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textStyle="italic"
+        android:hint="Code"
         android:inputType="number"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
         android:textSize="19sp"
+        android:visibility="invisible"
         />
 
 
@@ -71,7 +112,41 @@
         />
 
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/register_send_code_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_password_input"
+        android:layout_marginTop="65dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/buttons"
+        android:padding="17dp"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:text="Send Verification Code"
+        android:textColor="@android:color/white"
+        android:visibility="invisible"
+        />
+
+    <Button
+        android:id="@+id/register_verify_code_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_password_input"
+        android:layout_marginTop="65dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/buttons"
+        android:padding="17dp"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:text="Verify Code"
+        android:textColor="@android:color/white"
+        android:visibility="invisible"
+        />
+
+    <Button
+        android:id="@+id/register_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_password_input"
@@ -84,6 +159,8 @@
         android:textSize="18sp"
         android:text="Create Account"
         android:textColor="@android:color/white"
-        />
+        android:visibility="invisible"/>
+
+
 
 </RelativeLayout>

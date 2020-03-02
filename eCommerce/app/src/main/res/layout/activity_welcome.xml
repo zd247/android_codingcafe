@@ -26,6 +26,21 @@
         android:textColor="@android:color/holo_purple"
         android:textSize="22sp"
         android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/main_register_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_login_btn"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/inputs_design"
+        android:padding="18dp"
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        android:text="No Account !?  Register here G"
+        android:textColor="@android:color/white"/>
     
     <Button
         android:id="@+id/main_login_btn"
@@ -33,30 +48,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="50dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/buttons"
-        android:padding="20dp"
+        android:padding="18dp"
         android:textAllCaps="false"
-        android:textSize="18sp"
-        android:text="Already have an Account? Login"
+        android:textSize="17sp"
+        android:text="Already have an Account ? Login"
         android:textColor="@android:color/white"/>
 
-    <Button
-        android:id="@+id/main_join_now_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/main_login_btn"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/inputs_design"
-        android:padding="20dp"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:text="No Account? Join us  "
-        android:textColor="@android:color/white"/>
+
 
 
 

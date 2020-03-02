@@ -12,7 +12,7 @@
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="205dp"
         android:src="@drawable/applogo" />
 
     <EditText
@@ -27,7 +27,7 @@
         android:layout_marginRight="15dp"
         android:textStyle="italic"
         android:hint="Phone Number"
-        android:inputType="number"
+        android:inputType="phone"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
         android:textSize="19sp"
@@ -62,7 +62,7 @@
         >
 
         <com.rey.material.widget.CheckBox
-            android:id="@+id/remember_me_chkb"
+            android:id="@+id/login_remember_me_chkb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Material.Drawable.CheckBox"
