@@ -32,6 +32,9 @@ import org.w3c.dom.Text;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
+import rattclub.eCommerce.Model.User;
+import rattclub.eCommerce.Prevalent.Prevalent;
+
 public class RegisterActivity extends AppCompatActivity {
     private RelativeLayout registerLayout;
     private EditText inputName, inputPhone, inputPassword, inputVerify;
@@ -52,8 +55,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-        mAuth = FirebaseAuth.getInstance();
 
         InitializeFields();
 
@@ -238,16 +239,13 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void storeUserInformation() {
-        final String currentUserID = mAuth.getCurrentUser().getUid();
-
         rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (!dataSnapshot.child("Users").child(phone).exists()) {
-                    HashMap<String, Object> userInfoMap = new HashMap<>();
-                    userInfoMap.put("userID", currentUserID);
-                    userInfoMap.put("phone", phone);
+                    final HashMap<String, Object> userInfoMap = new HashMap<>();
                     userInfoMap.put("name", name);
+                    userInfoMap.put("phone", phone);
                     userInfoMap.put("password", password);
 
                     rootRef.child("Users").child(phone)
@@ -259,6 +257,11 @@ public class RegisterActivity extends AppCompatActivity {
                                 Toast.makeText(RegisterActivity.this,
                                         "Congrats, you can now buy some snizzles with yo new account",
                                         Toast.LENGTH_SHORT).show();
+                                User newUser = new User(userInfoMap.get("name").toString(),
+                                        userInfoMap.get("phone").toString(),
+                                        userInfoMap.get("password").toString(),
+                                        "", "");
+                                Prevalent.currentOnlineUser = newUser;
                                 sendUserToHomeActivity();
                             }else {
                                 Toast.makeText(RegisterActivity.this, "Unable to register.. Try again?", Toast.LENGTH_SHORT).show();

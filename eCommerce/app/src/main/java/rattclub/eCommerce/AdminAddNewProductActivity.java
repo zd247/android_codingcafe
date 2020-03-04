@@ -181,7 +181,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         productMap.put("description", description);
         productMap.put("image", downloadImageURL);
         productMap.put("category", categoryName);
-        productMap.put("price", price);
+        productMap.put("price", price + "$");
         productMap.put("pname", pName);
 
         productsRef.child(productRandomKey).updateChildren(productMap)

@@ -18,6 +18,8 @@
 ### project 3: eCommerce - online shopping app
   + login/register phone
   + new layouts
+  + navigation drawer
+  + firebase storage/ database.
 
 
 

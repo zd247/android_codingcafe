@@ -4,14 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.HomeFragment"
-    android:background="@color/backgroundColor"
-    tools:showIn="@layout/app_bar_home">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_menu"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"/>
+    tools:context=".ProductDetailsActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

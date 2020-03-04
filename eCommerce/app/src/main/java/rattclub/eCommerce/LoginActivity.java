@@ -130,6 +130,7 @@ public class LoginActivity extends AppCompatActivity {
                                 sendUserToAdminCategoryActivity();
                             }else if (parentDBName == "Users"){
                                 loadingBar.dismiss();
+                                Prevalent.currentOnlineUser = userData;
                                 sendUserToHomeActivity();
                             }
 
@@ -137,10 +138,12 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this,
                                     "Invalid password",
                                     Toast.LENGTH_SHORT).show();
+                            loadingBar.dismiss();
                         }
                     }
 
                 }else {
+                    loadingBar.dismiss();
                     Toast.makeText(LoginActivity.this,
                             "Invalid credentials provided, please re-enter correctly",
                             Toast.LENGTH_SHORT).show();

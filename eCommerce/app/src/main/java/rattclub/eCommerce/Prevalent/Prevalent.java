@@ -3,7 +3,7 @@ package rattclub.eCommerce.Prevalent;
 import rattclub.eCommerce.Model.User;
 
 public class Prevalent {
-    private static User currentOnlineUser;
+    public static User currentOnlineUser;
 
     public static final String userPhoneKey = "UserPhone";
     public static final String userPasswordKey = "UserPassword";

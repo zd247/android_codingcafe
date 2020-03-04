@@ -7,29 +7,17 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="rattclub.eCommerce.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:name="rattclub.eCommerce.Fragments.HomeFragment"
+        android:label="Home"
         tools:layout="@layout/fragment_home">
 
-        <action
-            android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
-            app:destination="@id/nav_gallery" />
     </fragment>
 
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="rattclub.eCommerce.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery">
-        <action
-        android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
-        app:destination="@id/nav_slideshow" />
-        />
-    </fragment>
+    <activity
+        android:id="@+id/nav_settings"
+        android:name="rattclub.eCommerce.SettingsActivity"
+        android:label="Settings"
+        tools:layout="@layout/activity_settings"/>
 
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="rattclub.eCommerce.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+
 </navigation>

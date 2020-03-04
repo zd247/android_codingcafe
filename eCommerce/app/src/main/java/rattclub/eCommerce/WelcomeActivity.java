@@ -84,6 +84,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     if (userData.getPhone().equals(userPhoneKey)){
                         if (userData.getPassword().equals(userPasswordKey)){
                             loadingBar.dismiss();
+                            Prevalent.currentOnlineUser = userData;
                             sendUserToHomeActivity();
                         }
                     }
