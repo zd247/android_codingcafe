@@ -1,4 +1,4 @@
-package rattclub.eCommerce;
+package rattclub.eCommerce.Users;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,6 +32,7 @@ import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import rattclub.eCommerce.Prevalent.Prevalent;
+import rattclub.eCommerce.R;
 
 public class SettingsActivity extends AppCompatActivity {
     private CircleImageView profileImageView;

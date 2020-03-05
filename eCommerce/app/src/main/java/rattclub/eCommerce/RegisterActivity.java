@@ -27,13 +27,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rey.material.widget.Switch;
 
-import org.w3c.dom.Text;
-
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 import rattclub.eCommerce.Model.User;
 import rattclub.eCommerce.Prevalent.Prevalent;
+import rattclub.eCommerce.Users.HomeActivity;
 
 public class RegisterActivity extends AppCompatActivity {
     private RelativeLayout registerLayout;

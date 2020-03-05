@@ -1,4 +1,4 @@
-package rattclub.eCommerce;
+package rattclub.eCommerce.Admins;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import rattclub.eCommerce.R;
 
 public class AdminCategoryActivity extends AppCompatActivity {
     private ImageView tShirts, sportsTShirts, femaleDresses, sweaters,

@@ -1,4 +1,4 @@
-package rattclub.eCommerce;
+package rattclub.eCommerce.Admins;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -30,6 +29,8 @@ import com.google.firebase.storage.UploadTask;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+
+import rattclub.eCommerce.R;
 
 public class AdminAddNewProductActivity extends AppCompatActivity {
     private String categoryName, description, price, pName, saveCurrentDate, saveCurrentTime;

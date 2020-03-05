@@ -1,5 +1,6 @@
 package rattclub.eCommerce.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import rattclub.eCommerce.Model.Product;
+import rattclub.eCommerce.Users.ProductDetailsActivity;
 import rattclub.eCommerce.R;
 import rattclub.eCommerce.ViewHolder.ProductViewHolder;
 
@@ -54,12 +56,21 @@ public class HomeFragment extends Fragment {
         FirebaseRecyclerAdapter<Product, ProductViewHolder> adapter =
                 new FirebaseRecyclerAdapter<Product, ProductViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull ProductViewHolder holder, int i, @NonNull Product product) {
+                    protected void onBindViewHolder(@NonNull ProductViewHolder holder, int i, @NonNull final Product product) {
                         holder.txtProductName.setText(product.getPname());
                         holder.txtProductDescription.setText(product.getPname());
                         holder.txtProductPrice.setText("Price = " + product.getPrice());
 
                         Picasso.get().load(product.getImage()).into(holder.imageView);
+
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(HomeFragment.this.getContext(), ProductDetailsActivity.class);
+                                intent.putExtra("pid", product.getPid());
+                                startActivity(intent);
+                            }
+                        });
                     }
 
                     @NonNull

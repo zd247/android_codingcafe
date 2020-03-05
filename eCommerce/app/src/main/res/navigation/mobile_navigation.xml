@@ -15,7 +15,7 @@
 
     <activity
         android:id="@+id/nav_settings"
-        android:name="rattclub.eCommerce.SettingsActivity"
+        android:name="rattclub.eCommerce.Users.SettingsActivity"
         android:label="Settings"
         tools:layout="@layout/activity_settings"/>
 

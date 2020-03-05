@@ -17,11 +17,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import io.paperdb.Paper;
 import rattclub.eCommerce.Model.User;
 import rattclub.eCommerce.Prevalent.Prevalent;
+import rattclub.eCommerce.Users.HomeActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
     private Button registerButton, loginButton;

@@ -3,7 +3,6 @@ package rattclub.eCommerce;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,8 +22,10 @@ import com.google.firebase.database.ValueEventListener;
 import com.rey.material.widget.CheckBox;
 
 import io.paperdb.Paper;
+import rattclub.eCommerce.Admins.AdminCategoryActivity;
 import rattclub.eCommerce.Model.User;
 import rattclub.eCommerce.Prevalent.Prevalent;
+import rattclub.eCommerce.Users.HomeActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText inputPhone, inputPassword;

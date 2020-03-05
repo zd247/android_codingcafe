@@ -1,14 +1,16 @@
-package rattclub.eCommerce;
+package rattclub.eCommerce.Admins;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ProductDetailsActivity extends AppCompatActivity {
+import rattclub.eCommerce.R;
+
+public class AdminNewOrderActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_details);
+        setContentView(R.layout.activity_admin_new_order);
     }
 }
