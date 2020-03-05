@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -60,7 +61,6 @@ public class AdminNewOrderActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 String uID = getRef(i).getKey();
-
                                 Intent intent = new Intent (AdminNewOrderActivity.this, AdminUserProductsActivity.class);
                                 intent.putExtra("uid", uID);
                                 startActivity(intent);

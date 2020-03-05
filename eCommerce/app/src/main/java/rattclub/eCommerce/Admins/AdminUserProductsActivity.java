@@ -21,7 +21,6 @@ import rattclub.eCommerce.ViewHolder.CartViewHolder;
 
 public class AdminUserProductsActivity extends AppCompatActivity {
     private RecyclerView productsList;
-    private RecyclerView.LayoutManager layoutManager;
     private DatabaseReference cartListRef;
     private String userID = "";
 
@@ -31,10 +30,8 @@ public class AdminUserProductsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_user_products);
 
         userID = getIntent().getStringExtra("uid");
-        productsList.findViewById(R.id.products_list);
-        productsList.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        productsList.setLayoutManager(layoutManager);
+        productsList = findViewById(R.id.admin_products_list);
+        productsList.setLayoutManager(new LinearLayoutManager(this));
 
         cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List")
         .child("Admin View").child(userID).child("Products");
