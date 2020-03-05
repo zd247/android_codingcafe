@@ -117,12 +117,14 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void userInfoDisplay() {
 
+        Toast.makeText(this, Prevalent.currentOnlineUser.getPhone(), Toast.LENGTH_SHORT).show();
+
         DatabaseReference usersRef = FirebaseDatabase.getInstance()
                 .getReference()
-                .child("Users")
-                .child(Prevalent.currentOnlineUser.getPhone());
+                .child("Users");
 
-        usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
+        usersRef.child(Prevalent.currentOnlineUser.getPhone()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -130,13 +132,17 @@ public class SettingsActivity extends AppCompatActivity {
                         String image = dataSnapshot.child("image").getValue().toString();
                         Picasso.get().load(image).into(profileImageView);
                     }
+                    if (dataSnapshot.child("address").exists()) {
+                        String address = dataSnapshot.child("address").getValue().toString();
+                        addressEditText.setText(address);
+                    }
                     String name = dataSnapshot.child("name").getValue().toString();
                     String phone = dataSnapshot.child("phone").getValue().toString();
-                    String address = dataSnapshot.child("address").getValue().toString();
+
 
                     fullNameEditText.setText(name);
                     userPhoneEditText.setText(phone);
-                    addressEditText.setText(address);
+
                 }
             }
 

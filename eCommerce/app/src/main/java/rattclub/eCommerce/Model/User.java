@@ -1,16 +1,16 @@
 package rattclub.eCommerce.Model;
 
 public class User {
-    private String name, phone, password,image,adress;
+    private String name, phone, password,image,address;
 
     public User() {}
 
-    public User(String name, String phone, String password, String image, String adress) {
+    public User(String name, String phone, String password, String image, String address) {
         this.name = name;
         this.phone = phone;
         this.password = password;
         this.image = image;
-        this.adress = adress;
+        this.address = address;
     }
 
     public String getName() {
@@ -46,10 +46,10 @@ public class User {
     }
 
     public String getAdress() {
-        return adress;
+        return address;
     }
 
     public void setAdress(String adress) {
-        this.adress = adress;
+        this.address = adress;
     }
 }

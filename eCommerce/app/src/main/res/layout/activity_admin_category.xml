@@ -148,4 +148,31 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/check_order_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
+        android:layout_above="@+id/admin_logout_btn"
+        android:text="Check New Order"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/admin_logout_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
+        android:text="Sign out"
+        android:textSize="20dp"/>
+
+
+
+
+
+
 </RelativeLayout>
