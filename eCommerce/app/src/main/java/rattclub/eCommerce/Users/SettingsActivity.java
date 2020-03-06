@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,11 +34,13 @@ import java.util.HashMap;
 import de.hdodenhof.circleimageview.CircleImageView;
 import rattclub.eCommerce.Prevalent.Prevalent;
 import rattclub.eCommerce.R;
+import rattclub.eCommerce.ResetPasswordActivity;
 
 public class SettingsActivity extends AppCompatActivity {
     private CircleImageView profileImageView;
     private EditText fullNameEditText, userPhoneEditText, addressEditText;
     private TextView profileChangeTextBtn, closeTextBtn, saveTextBtn;
+    private Button securityQuestionButton;
 
     private Uri imageUri;
     private String myUrl = "";
@@ -84,6 +87,15 @@ public class SettingsActivity extends AppCompatActivity {
 
             }
         });
+
+        securityQuestionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingsActivity.this, ResetPasswordActivity.class);
+                intent.putExtra("check", "settings");
+                startActivity(intent);
+            }
+        });
     }
 
     private void InitializeFields() {
@@ -95,6 +107,7 @@ public class SettingsActivity extends AppCompatActivity {
         closeTextBtn = findViewById(R.id.close_settings_btn);
         saveTextBtn = findViewById(R.id.update_account_settings_btn);
         storageProfilePictureRef = FirebaseStorage.getInstance().getReference().child("Profile Pictures");
+        securityQuestionButton = findViewById(R.id.settings_security_question_btn);
 
     }
 

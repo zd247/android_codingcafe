@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="15dp"
         android:text="Add new Product"
         android:textAlignment="center"
         android:textSize="26sp"
@@ -28,7 +28,7 @@
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
 
@@ -72,7 +72,7 @@
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="45dp">
+        android:layout_marginTop="15dp">
 
         <ImageView
             android:id="@+id/glasses"
@@ -115,7 +115,7 @@
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="45dp">
+        android:layout_marginTop="15dp">
 
         <ImageView
             android:id="@+id/headphones_handfree"
@@ -147,6 +147,18 @@
             />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/maintain_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
+        android:layout_above="@+id/check_order_btn"
+        android:text="Maintain product"
+        android:textSize="20dp"
+        android:layout_marginBottom="20dp"/>
 
     <Button
         android:id="@+id/check_order_btn"

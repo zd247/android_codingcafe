@@ -26,13 +26,14 @@ import rattclub.eCommerce.Admins.AdminCategoryActivity;
 import rattclub.eCommerce.Model.User;
 import rattclub.eCommerce.Prevalent.Prevalent;
 import rattclub.eCommerce.Users.HomeActivity;
+import rattclub.eCommerce.Users.SettingsActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText inputPhone, inputPassword;
     private Button loginButton;
     private CheckBox rememberMeCheckBox;
     private ProgressDialog loadingBar;
-    private TextView adminLink, notAdminLink;
+    private TextView adminLink, notAdminLink, forgetPasswordLink;
     private String parentDBName = "Users";
 
     FirebaseAuth mAuth;
@@ -74,6 +75,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        forgetPasswordLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, ResetPasswordActivity.class);
+                intent.putExtra("check", "login");
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void InitializeFields() {
@@ -89,6 +99,7 @@ public class LoginActivity extends AppCompatActivity {
 
         adminLink = findViewById(R.id.admin_panel_link);
         notAdminLink = findViewById(R.id.not_admin_panel_link);
+        forgetPasswordLink = findViewById(R.id.forget_password_link);
     }
 
 

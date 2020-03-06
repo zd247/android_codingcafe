@@ -29,6 +29,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
+import rattclub.eCommerce.Fragments.HomeFragment;
 import rattclub.eCommerce.Prevalent.Prevalent;
 import rattclub.eCommerce.R;
 import rattclub.eCommerce.WelcomeActivity;
@@ -39,6 +40,7 @@ public class HomeActivity extends AppCompatActivity{
     private NavigationView navigationView;
     private DrawerLayout drawer;
     private DatabaseReference usersRef;
+    private String type = "";
 
 
     @Override
@@ -100,27 +102,32 @@ public class HomeActivity extends AppCompatActivity{
             }
         });
 
+
         //set nav header
-        View headerView = navigationView.getHeaderView(0);
-        TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
-        final CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
 
-        userNameTextView.setText(Prevalent.currentOnlineUser.getName());
+        if (!type.equals("Admin")) {
+            View headerView = navigationView.getHeaderView(0);
+            TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
+            final CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
 
-        usersRef.child(Prevalent.currentOnlineUser.getPhone()).child("image")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.exists()) {
-                            Picasso.get().load(Prevalent.currentOnlineUser.getImage())
-                                    .placeholder(R.drawable.profile).into(profileImageView);
+            userNameTextView.setText(Prevalent.currentOnlineUser.getName());
+
+            usersRef.child(Prevalent.currentOnlineUser.getPhone()).child("image")
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists()) {
+                                Picasso.get().load(Prevalent.currentOnlineUser.getImage())
+                                        .placeholder(R.drawable.profile).into(profileImageView);
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) { }
-                });
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) { }
+                    });
+        }
     }
+
 
     private void InitializeFields() {
         Paper.init(this);
@@ -131,6 +138,13 @@ public class HomeActivity extends AppCompatActivity{
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         usersRef = FirebaseDatabase.getInstance().getReference().child("Users");
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null) {
+            type = intent.getExtras().get("Admin").toString();
+        }
+
 
     }
 

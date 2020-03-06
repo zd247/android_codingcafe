@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import rattclub.eCommerce.Admins.AdminMaintainProductActivity;
 import rattclub.eCommerce.Model.Product;
 import rattclub.eCommerce.Users.ProductDetailsActivity;
 import rattclub.eCommerce.R;
@@ -27,6 +28,9 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     private DatabaseReference productsRef;
+    private String type = "";
+
+    public HomeFragment() { }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
@@ -43,6 +47,14 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         productsRef = FirebaseDatabase.getInstance().getReference().child("Products");
+
+        Intent intent = getActivity().getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null) {
+            type = intent.getExtras().get("Admin").toString();
+        }
+
+
     }
 
     @Override
@@ -66,9 +78,16 @@ public class HomeFragment extends Fragment {
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(HomeFragment.this.getContext(), ProductDetailsActivity.class);
-                                intent.putExtra("pid", product.getPid());
-                                startActivity(intent);
+                                if (type.equals("Admin")) {
+                                    Intent intent = new Intent(HomeFragment.this.getContext(), AdminMaintainProductActivity.class);
+                                    intent.putExtra("pid", product.getPid());
+                                    startActivity(intent);
+                                }else {
+                                    Intent intent = new Intent(HomeFragment.this.getContext(), ProductDetailsActivity.class);
+                                    intent.putExtra("pid", product.getPid());
+                                    startActivity(intent);
+                                }
+
                             }
                         });
                     }
