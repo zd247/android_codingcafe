@@ -12,7 +12,7 @@
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/applogo"/>
     
     <TextView
@@ -20,11 +20,11 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="135dp"
+        android:layout_marginTop="125dp"
         android:textAlignment="center"
         android:text="Buy yo snizzles with yo bizzles !!"
         android:textColor="@android:color/holo_purple"
-        android:textSize="22sp"
+        android:textSize="28sp"
         android:textStyle="bold|italic" />
 
     <Button
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="60dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/buttons"
@@ -57,6 +57,18 @@
         android:textSize="17sp"
         android:text="Already have an Account ? Login"
         android:textColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/seller_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wanna sell some snizzles ? Click here.."
+        android:textColor="@android:color/holo_purple"
+        android:textStyle="bold|italic"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp"
+        android:textSize="17dp"/>
 
 
 

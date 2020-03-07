@@ -23,17 +23,17 @@ import rattclub.eCommerce.Users.ProductDetailsActivity;
 import rattclub.eCommerce.R;
 import rattclub.eCommerce.ViewHolder.ProductViewHolder;
 
-public class HomeFragment extends Fragment {
+public class UserHomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     private DatabaseReference productsRef;
     private String type = "";
 
-    public HomeFragment() { }
+    public UserHomeFragment() { }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_home_user, container, false);
 
         InitializeFields(root);
 
@@ -79,11 +79,11 @@ public class HomeFragment extends Fragment {
                             @Override
                             public void onClick(View v) {
                                 if (type.equals("Admin")) {
-                                    Intent intent = new Intent(HomeFragment.this.getContext(), AdminMaintainProductActivity.class);
+                                    Intent intent = new Intent(UserHomeFragment.this.getContext(), AdminMaintainProductActivity.class);
                                     intent.putExtra("pid", product.getPid());
                                     startActivity(intent);
                                 }else {
-                                    Intent intent = new Intent(HomeFragment.this.getContext(), ProductDetailsActivity.class);
+                                    Intent intent = new Intent(UserHomeFragment.this.getContext(), ProductDetailsActivity.class);
                                     intent.putExtra("pid", product.getPid());
                                     startActivity(intent);
                                 }

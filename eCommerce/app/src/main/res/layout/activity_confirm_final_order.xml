@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Users.ConfirmFinalOrderActivity"
-    android:background="@drawable/background5">
+    android:background="@drawable/background12">
 
     <TextView
         android:id="@+id/txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Confirm your purchase"
+        android:textAllCaps="true"
         android:textSize="18dp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@android:color/primary_text_light"
         android:layout_margin="15dp"
         android:textAlignment="center"/>
 
@@ -25,6 +26,7 @@
         android:layout_below="@+id/txt"
         android:layout_marginTop="60dp"
         android:layout_marginHorizontal="20dp"
+        android:textColor="@android:color/white"
         android:hint="Your name" />
 
     <EditText
@@ -34,6 +36,7 @@
         android:layout_below="@+id/shipment_name"
         android:layout_marginTop="5dp"
         android:layout_marginHorizontal="20dp"
+        android:textColor="@android:color/white"
         android:hint="Your phone number"/>
 
     <EditText
@@ -42,6 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/shipment_phone_number"
         android:layout_marginTop="5dp"
+        android:textColor="@android:color/white"
         android:layout_marginHorizontal="20dp"
         android:hint="Your address"/>
 
@@ -51,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/shipment_address"
         android:layout_marginTop="5dp"
+        android:textColor="@android:color/white"
         android:layout_marginHorizontal="20dp"
         android:hint="Your city" />
     

@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="rattclub.eCommerce">
+    package="rattclub.eCommerce" >
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <application xmlns:tools="http://schemas.android.com/tools"
+    <application
+        xmlns:tools="http://schemas.android.com/tools"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_ecommerce"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_ecommerce"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:icon">
-        <activity android:name=".ResetPasswordActivity"></activity>
+        tools:replace="android:icon" >
+        <activity android:name=".Sellers.SellerLoginActivity" />
+        <activity android:name=".Sellers.SellerRegistrationActivity" />
+        <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".Admins.AdminMaintainProductActivity" />
         <activity android:name=".Admins.AdminUserProductsActivity" />
         <activity android:name=".Admins.AdminNewOrderActivity" />
@@ -38,7 +41,7 @@
         <activity
             android:name=".LoginActivity"
             android:parentActivityName=".WelcomeActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

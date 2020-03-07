@@ -29,7 +29,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
-import rattclub.eCommerce.Fragments.HomeFragment;
 import rattclub.eCommerce.Prevalent.Prevalent;
 import rattclub.eCommerce.R;
 import rattclub.eCommerce.WelcomeActivity;
