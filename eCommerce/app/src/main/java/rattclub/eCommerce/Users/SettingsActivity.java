@@ -129,9 +129,6 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void userInfoDisplay() {
-
-        Toast.makeText(this, Prevalent.currentOnlineUser.getPhone(), Toast.LENGTH_SHORT).show();
-
         DatabaseReference usersRef = FirebaseDatabase.getInstance()
                 .getReference()
                 .child("Users");

@@ -39,7 +39,7 @@ public class SellerRegistrationActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.seller_register_btn);
         nameInput = findViewById(R.id.seller_name);
         phoneInput = findViewById(R.id.seller_phone);
-        emailInput = findViewById(R.id.seller_password);
+        emailInput = findViewById(R.id.seller_email);
         passwordInput = findViewById(R.id.seller_password);
         addressInput = findViewById(R.id.seller_address);
         mAuth = FirebaseAuth.getInstance();
@@ -61,6 +61,20 @@ public class SellerRegistrationActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (mAuth.getCurrentUser() != null) {
+            loadingBar.setTitle("Logging in");
+            loadingBar.setMessage("Please wait...");
+            loadingBar.setCanceledOnTouchOutside(false);
+            loadingBar.show();
+            sendSellerToHomeActivity();
+        }
+
+    }
+
     private void registerSeller() {
         final String name = nameInput.getText().toString();
         final String phone = phoneInput.getText().toString();
@@ -75,7 +89,7 @@ public class SellerRegistrationActivity extends AppCompatActivity {
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
 
-            mAuth.createUserWithEmailAndPassword(email, password)
+            mAuth.createUserWithEmailAndPassword(email.trim(), password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -99,10 +113,15 @@ public class SellerRegistrationActivity extends AppCompatActivity {
                                                 Toast.makeText(SellerRegistrationActivity.this,
                                                         "Snizzla registered",
                                                         Toast.LENGTH_SHORT).show();
-                                                loadingBar.dismiss();
+                                                sendSellerToHomeActivity();
                                             }
                                         });
 
+                            }else {
+                                loadingBar.dismiss();
+                                Toast.makeText(SellerRegistrationActivity.this,
+                                        "Error" + task.getException().toString(),
+                                        Toast.LENGTH_LONG).show();
                             }
                         }
                     });
@@ -112,6 +131,13 @@ public class SellerRegistrationActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
             loadingBar.dismiss();
         }
-        
+    }
+
+    private void sendSellerToHomeActivity () {
+        loadingBar.dismiss();
+        Intent intent = new Intent(SellerRegistrationActivity.this, SellerHomeActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 }

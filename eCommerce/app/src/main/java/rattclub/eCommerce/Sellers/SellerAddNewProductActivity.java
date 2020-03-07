@@ -1,4 +1,4 @@
-package rattclub.eCommerce.Admins;
+package rattclub.eCommerce.Sellers;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,9 +30,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
+import rattclub.eCommerce.Admins.AdminCategoryActivity;
 import rattclub.eCommerce.R;
 
-public class AdminAddNewProductActivity extends AppCompatActivity {
+public class SellerAddNewProductActivity extends AppCompatActivity {
     private String categoryName, description, price, pName, saveCurrentDate, saveCurrentTime;
     private Button addNewProductButton;
     private ImageView inputProductImage;
@@ -47,7 +48,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_add_new_product);
+        setContentView(R.layout.activity_seller_add_new_product);
 
         categoryName = getIntent().getExtras().get("category").toString();
 
@@ -140,13 +141,13 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 loadingBar.dismiss();
                 String message = e.toString();
-                Toast.makeText(AdminAddNewProductActivity.this, "Error uploading: " + message,
+                Toast.makeText(SellerAddNewProductActivity.this, "Error uploading: " + message,
                         Toast.LENGTH_SHORT).show();
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(AdminAddNewProductActivity.this, "Image uploaded..",
+                Toast.makeText(SellerAddNewProductActivity.this, "Image uploaded..",
                         Toast.LENGTH_SHORT).show();
 
                 // get image download url in storage with task
@@ -190,18 +191,18 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Intent intent = new Intent(AdminAddNewProductActivity.this, AdminCategoryActivity.class);
+                            Intent intent = new Intent(SellerAddNewProductActivity.this, AdminCategoryActivity.class);
                             intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
 
                             loadingBar.dismiss();
-                            Toast.makeText(AdminAddNewProductActivity.this, "Product stored in the database",
+                            Toast.makeText(SellerAddNewProductActivity.this, "Product stored in the database",
                                     Toast.LENGTH_SHORT).show();
                             finish();
                         }else {
                             loadingBar.dismiss();
                             String message = task.getException().toString();
-                            Toast.makeText(AdminAddNewProductActivity.this, "Error storing: " + message,
+                            Toast.makeText(SellerAddNewProductActivity.this, "Error storing: " + message,
                                     Toast.LENGTH_SHORT).show();
                         }
                     }

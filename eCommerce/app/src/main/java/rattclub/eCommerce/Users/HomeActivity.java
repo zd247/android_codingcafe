@@ -58,7 +58,6 @@ public class HomeActivity extends AppCompatActivity{
             }
         });
 
-
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
