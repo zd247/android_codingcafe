@@ -3,5 +3,4 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_seller_home">SellerHomeActivity</string>
-    <string name="title_home">Home</string>
 </resources>

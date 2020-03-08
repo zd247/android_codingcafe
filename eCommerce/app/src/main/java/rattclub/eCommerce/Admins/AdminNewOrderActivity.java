@@ -26,6 +26,7 @@ import rattclub.eCommerce.R;
 public class AdminNewOrderActivity extends AppCompatActivity {
     private RecyclerView ordersList;
     private DatabaseReference ordersRef;
+    RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,10 @@ public class AdminNewOrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_new_order);
 
         ordersList = findViewById(R.id.order_list);
-        ordersList.setLayoutManager(new LinearLayoutManager(this));
+        ordersList.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        ordersList.setLayoutManager(layoutManager);
+
         ordersRef = FirebaseDatabase.getInstance().getReference().child("Orders");
 
     }

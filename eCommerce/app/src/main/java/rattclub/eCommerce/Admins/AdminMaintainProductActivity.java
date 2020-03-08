@@ -112,9 +112,9 @@ public class AdminMaintainProductActivity extends AppCompatActivity {
                     Toast.makeText(AdminMaintainProductActivity.this,
                             "Changes applied successfully",
                             Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent (AdminMaintainProductActivity.this, AdminCategoryActivity.class);
-                    startActivity(intent);
-                    finish();
+//                    Intent intent = new Intent (AdminMaintainProductActivity.this, SellerAddCategoryActivity.class);
+//                    startActivity(intent);
+//                    finish();
                 }
             });
         }

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/seller_navigation_home"
         android:name="rattclub.eCommerce.Fragments.SellerHomeFragment"
-        android:label="@string/title_home"
+        android:label="My Products"
         tools:layout="@layout/fragment_home_seller" />
 
     <fragment

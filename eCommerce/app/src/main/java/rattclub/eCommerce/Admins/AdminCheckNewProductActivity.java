@@ -1,4 +1,10 @@
-package rattclub.eCommerce.Fragments;
+package rattclub.eCommerce.Admins;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -7,65 +13,52 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
-import rattclub.eCommerce.Admins.AdminCheckNewProductActivity;
 import rattclub.eCommerce.Model.Product;
 import rattclub.eCommerce.R;
 import rattclub.eCommerce.ViewHolder.ProductViewHolder;
-import rattclub.eCommerce.ViewHolder.SellerItemViewHolder;
 
-public class SellerHomeFragment extends Fragment {
+public class AdminCheckNewProductActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-    private DatabaseReference productsRef;
-    View root;
+    private DatabaseReference unverifiedProductsRef;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_home_seller, container, false);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_admin_check_new_product);
 
-        recyclerView = root.findViewById(R.id.seller_products_list);
+        unverifiedProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
+
+        recyclerView = findViewById(R.id.admin_product_checklist);
         recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(root.getContext());
+        layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        productsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
-
-        return root;
     }
 
     @Override
-    public void onStart() {
+    protected void onStart() {
         super.onStart();
 
         FirebaseRecyclerOptions<Product> options = new FirebaseRecyclerOptions.Builder<Product>()
-                .setQuery(productsRef.orderByChild("sid")
-                        .equalTo(FirebaseAuth.getInstance()
-                                .getCurrentUser().getUid()), Product.class)
+                .setQuery(unverifiedProductsRef.orderByChild("productState").equalTo("Not Approved"), Product.class)
                 .build();
 
-        FirebaseRecyclerAdapter<Product, SellerItemViewHolder> adapter = new FirebaseRecyclerAdapter<Product, SellerItemViewHolder>(options) {
+        FirebaseRecyclerAdapter<Product, ProductViewHolder> adapter = new FirebaseRecyclerAdapter<Product, ProductViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull SellerItemViewHolder holder, int position, @NonNull final Product product) {
+            protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Product product) {
                 holder.txtProductName.setText(product.getPname());
                 holder.txtProductDescription.setText(product.getDescription());
                 holder.txtProductPrice.setText("Price = " + product.getPrice());
-                holder.txtProductStatus.setText(product.getProductState());
 
                 Picasso.get().load(product.getImage()).into(holder.imageView);
 
@@ -79,15 +72,17 @@ public class SellerHomeFragment extends Fragment {
                                 "No"
                         };
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(root.getContext());
-                        builder.setTitle("Do you want to delete this product ?");
+                        AlertDialog.Builder builder = new AlertDialog.Builder(AdminCheckNewProductActivity.this);
+                        builder.setTitle("Do you want to approve this product ?");
                         builder.setItems(options, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 if (which == 0) {
-                                    deleteProduct(productID);
+                                    changeProductState(productID);
                                 }
-                                if (which == 1) { }
+                                if (which == 1) {
+
+                                }
                             }
                         });
 
@@ -98,10 +93,10 @@ public class SellerHomeFragment extends Fragment {
 
             @NonNull
             @Override
-            public SellerItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.seller_item_view, parent, false);
-                SellerItemViewHolder holder = new SellerItemViewHolder(view);
+                        .inflate(R.layout.product_items_layout, parent, false);
+                ProductViewHolder holder = new ProductViewHolder(view);
                 return holder;
 
             }
@@ -111,14 +106,14 @@ public class SellerHomeFragment extends Fragment {
         adapter.startListening();
     }
 
-    private void deleteProduct(String productID) {
-        productsRef.child(productID)
-                .removeValue()
+    private void changeProductState(String productID) {
+        unverifiedProductsRef.child(productID)
+                .child("productState").setValue("Approved")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(root.getContext()
+                            Toast.makeText(AdminCheckNewProductActivity.this
                                     , "Item approved, item is now available for sale"
                                     , Toast.LENGTH_SHORT).show();
                         }

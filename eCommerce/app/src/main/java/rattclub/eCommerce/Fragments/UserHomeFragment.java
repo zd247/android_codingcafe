@@ -24,7 +24,6 @@ import rattclub.eCommerce.R;
 import rattclub.eCommerce.ViewHolder.ProductViewHolder;
 
 public class UserHomeFragment extends Fragment {
-
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     private DatabaseReference productsRef;
@@ -62,7 +61,7 @@ public class UserHomeFragment extends Fragment {
         super.onStart();
 
         FirebaseRecyclerOptions<Product> options = new FirebaseRecyclerOptions.Builder<Product>()
-                .setQuery(productsRef, Product.class)
+                .setQuery(productsRef.orderByChild("productState").equalTo("Approved"), Product.class)
                 .build();
 
         FirebaseRecyclerAdapter<Product, ProductViewHolder> adapter =
@@ -70,7 +69,7 @@ public class UserHomeFragment extends Fragment {
                     @Override
                     protected void onBindViewHolder(@NonNull ProductViewHolder holder, int i, @NonNull final Product product) {
                         holder.txtProductName.setText(product.getPname());
-                        holder.txtProductDescription.setText(product.getPname());
+                        holder.txtProductDescription.setText(product.getDescription());
                         holder.txtProductPrice.setText("Price = " + product.getPrice());
 
                         Picasso.get().load(product.getImage()).into(holder.imageView);

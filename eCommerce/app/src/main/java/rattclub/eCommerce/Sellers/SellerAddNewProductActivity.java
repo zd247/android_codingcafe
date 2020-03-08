@@ -20,8 +20,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -30,7 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
-import rattclub.eCommerce.Admins.AdminCategoryActivity;
+import rattclub.eCommerce.Fragments.SellerAddFragment;
 import rattclub.eCommerce.R;
 
 public class SellerAddNewProductActivity extends AppCompatActivity {
@@ -42,8 +46,10 @@ public class SellerAddNewProductActivity extends AppCompatActivity {
     private Uri imageUri;
     private String productRandomKey, downloadImageURL;
     private StorageReference productImagesRef;
-    private DatabaseReference productsRef;
+    private DatabaseReference productsRef, sellersRef;
     private ProgressDialog loadingBar;
+
+    private String sName, sAddress, sPhone, sEmail, sID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +73,23 @@ public class SellerAddNewProductActivity extends AppCompatActivity {
                 validateProductData();
             }
         });
+
+        sellersRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            sName = dataSnapshot.child("name").getValue().toString();
+                            sPhone = dataSnapshot.child("phone").getValue().toString();
+                            sEmail = dataSnapshot.child("email").getValue().toString();
+                            sAddress = dataSnapshot.child("address").getValue().toString();
+                            sID = dataSnapshot.child("sid").getValue().toString();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) { }
+                });
     }
 
     private void InitializeFields() {
@@ -77,6 +100,7 @@ public class SellerAddNewProductActivity extends AppCompatActivity {
         inputProductImage = findViewById(R.id.select_product_image);
         productImagesRef = FirebaseStorage.getInstance().getReference().child("Product Images");
         productsRef = FirebaseDatabase.getInstance().getReference().child("Products");
+        sellersRef = FirebaseDatabase.getInstance().getReference().child("Sellers");
         loadingBar = new ProgressDialog(this);
     }
 
@@ -186,12 +210,19 @@ public class SellerAddNewProductActivity extends AppCompatActivity {
         productMap.put("price", price + "$");
         productMap.put("pname", pName);
 
+        productMap.put("sellerName", sName);
+        productMap.put("sellerAddress", sAddress);
+        productMap.put("sellerEmail", sEmail);
+        productMap.put("sellerPhone", sPhone);
+        productMap.put("sid", sID);
+        productMap.put("productState", "Not Approved");
+
         productsRef.child(productRandomKey).updateChildren(productMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Intent intent = new Intent(SellerAddNewProductActivity.this, AdminCategoryActivity.class);
+                            Intent intent = new Intent(SellerAddNewProductActivity.this, SellerHomeActivity.class);
                             intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
 
@@ -203,7 +234,7 @@ public class SellerAddNewProductActivity extends AppCompatActivity {
                             loadingBar.dismiss();
                             String message = task.getException().toString();
                             Toast.makeText(SellerAddNewProductActivity.this, "Error storing: " + message,
-                                    Toast.LENGTH_SHORT).show();
+                                    Toast.LENGTH_LONG).show();
                         }
                     }
                 });

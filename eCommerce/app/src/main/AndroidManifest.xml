@@ -14,9 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
+        <activity android:name=".Admins.AdminCheckNewProductActivity"></activity>
+        <activity android:name=".Admins.AdminHomeActivity" />
         <activity
             android:name=".Sellers.SellerHomeActivity"
-            android:label="@string/title_activity_seller_home"></activity>
+            android:label="@string/title_activity_seller_home" />
         <activity android:name=".Sellers.SellerLoginActivity" />
         <activity android:name=".Sellers.SellerRegistrationActivity" />
         <activity android:name=".ResetPasswordActivity" />
@@ -34,7 +36,6 @@
             android:name=".Users.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Admins.AdminCategoryActivity" />
         <activity android:name=".Sellers.SellerAddNewProductActivity" />
         <activity
             android:name=".RegisterActivity"

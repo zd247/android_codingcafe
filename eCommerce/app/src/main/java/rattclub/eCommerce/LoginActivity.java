@@ -22,11 +22,10 @@ import com.google.firebase.database.ValueEventListener;
 import com.rey.material.widget.CheckBox;
 
 import io.paperdb.Paper;
-import rattclub.eCommerce.Admins.AdminCategoryActivity;
+import rattclub.eCommerce.Admins.AdminHomeActivity;
 import rattclub.eCommerce.Model.User;
 import rattclub.eCommerce.Prevalent.Prevalent;
 import rattclub.eCommerce.Users.HomeActivity;
-import rattclub.eCommerce.Users.SettingsActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText inputPhone, inputPassword;
@@ -170,7 +169,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void sendUserToAdminCategoryActivity() {
-        Intent intent = new Intent (this, AdminCategoryActivity.class);
+        Intent intent = new Intent (this, AdminHomeActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();

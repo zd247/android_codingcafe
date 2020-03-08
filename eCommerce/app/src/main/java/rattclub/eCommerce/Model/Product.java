@@ -2,13 +2,13 @@ package rattclub.eCommerce.Model;
 
 public class Product {
     private String pname, description, price,
-            image, category, pid, date,time;
+            image, category, pid, date,time,productState;
 
     public Product() {}
 
     public Product(String pname, String description, String price,
                    String image, String category, String pid,
-                   String date, String time) {
+                   String date, String time, String productState) {
         this.pname = pname;
         this.description = description;
         this.price = price;
@@ -17,6 +17,7 @@ public class Product {
         this.pid = pid;
         this.date = date;
         this.time = time;
+        this.productState = productState;
     }
 
     public String getPname() {
@@ -81,5 +82,13 @@ public class Product {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getProductState() {
+        return productState;
+    }
+
+    public void setProductState(String productState) {
+        this.productState = productState;
     }
 }
