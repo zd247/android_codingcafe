@@ -26,5 +26,5 @@
   + login user/seller/admin
 
 
-### project 4: weather - weather forecast app
+### project 4: InstagramClone - social media app
   + kotlin practice
