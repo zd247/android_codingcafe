@@ -20,9 +20,11 @@
   + new layouts
   + navigation drawer
   + firebase storage/ database.
-
+  + bottom bar navigation
+  + approval of products
+  + forget password
+  + login user/seller/admin
 
 
 ### project 4: weather - weather forecast app
   + kotlin practice
-  + 
