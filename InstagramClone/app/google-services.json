@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "620077307783",
+    "firebase_url": "https://instagramclone-8ce0a.firebaseio.com",
+    "project_id": "instagramclone-8ce0a",
+    "storage_bucket": "instagramclone-8ce0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620077307783:android:4e2a220c793be207eb2522",
+        "android_client_info": {
+          "package_name": "rattclub.c.instagramclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620077307783-l75fiaqk3qitmt8vdn50o7d8vanqs2t5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkkB097a9QTE86vb_KgZ8JzoDf8o1qnY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620077307783-l75fiaqk3qitmt8vdn50o7d8vanqs2t5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
