@@ -36,8 +36,8 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun registerUser() {
-        fullName = full_name_register.text.toString()
-        username = username_register.text.toString()
+        fullName = full_name_register.text.toString().toLowerCase()
+        username = username_register.text.toString().toLowerCase()
         email = email_register.text.toString()
         password = password_register.text.toString()
 
