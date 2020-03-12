@@ -51,7 +51,7 @@ class SearchFragment : Fragment() {
                 }else {
                     recyclerView?.visibility = View.VISIBLE
 
-//                    retrieveUsers()
+                    retrieveUsers()
                     searchUser(s.toString().toLowerCase())
                 }
             }
@@ -90,6 +90,7 @@ class SearchFragment : Fragment() {
             .child("Users")
             .orderByChild("fullname")
             .startAt(input).endAt(input + "\uf8ff")
+
 
         query.addValueEventListener(object: ValueEventListener{
             override fun onDataChange(dataSnapshot: DataSnapshot) {

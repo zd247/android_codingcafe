@@ -65,7 +65,6 @@ class MainActivity : AppCompatActivity() {
     private fun moveToFragment(fragment: Fragment) {
         val fragmentTrans = supportFragmentManager.beginTransaction()
         fragmentTrans.replace(R.id.fragment_container, fragment)
-        fragmentTrans.addToBackStack(null)
         fragmentTrans.commit()
     }
 }
