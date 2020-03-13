@@ -46,9 +46,49 @@ class ProfileFragment : Fragment() {
         }
 
         view.edit_account_btn.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(view.context,AccountSettingsActivity().javaClass))
-        })
+            val getButtonText = view.edit_account_btn.text.toString()
 
+            when {
+                getButtonText == "Edit Profile" ->{
+                    startActivity(Intent(view.context,AccountSettingsActivity().javaClass))
+                }
+
+                getButtonText == "Follow" -> {
+                    firebaseUser?.uid.let {it ->
+                        FirebaseDatabase.getInstance().reference
+                            .child("Follow").child(it)
+                            .child("Following").child(profileID)
+                            .setValue(true)
+                    }
+
+                    firebaseUser?.uid.let {it ->
+                        FirebaseDatabase.getInstance().reference
+                            .child("Follow").child(profileID)
+                            .child("Followers").child(it)
+                            .setValue(true)
+                    }
+                }
+
+                getButtonText == "Following" -> {
+                    firebaseUser?.uid.let {it ->
+                        FirebaseDatabase.getInstance().reference
+                            .child("Follow").child(it)
+                            .child("Following").child(profileID)
+                            .removeValue()
+                    }
+
+                    firebaseUser?.uid.let {it ->
+                        FirebaseDatabase.getInstance().reference
+                            .child("Follow").child(profileID)
+                            .child("Followers").child(it)
+                            .removeValue()
+                    }
+                }
+
+
+            }
+
+        })
 
         getDisplayFollowers()
         getDisplayFollowing()
@@ -77,7 +117,7 @@ class ProfileFragment : Fragment() {
     private fun getDisplayFollowers(){
         val followersRef: DatabaseReference = FirebaseDatabase.getInstance()
             .reference.child("Follow")
-            .child(firebaseUser.uid)
+            .child(profileID)
             .child("Followers")
 
         followersRef.addValueEventListener(object: ValueEventListener{
