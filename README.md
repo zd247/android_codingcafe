@@ -27,4 +27,7 @@
 
 
 ### project 4: InstagramClone - social media app
-  + kotlin practice
+  + kotlin
+  + user edit/ post/ get
+  + search bar with recycler view
+  + image cropper + firebase storage
