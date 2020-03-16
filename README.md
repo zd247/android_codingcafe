@@ -31,3 +31,11 @@
   + user edit/ post/ get
   + search bar with recycler view
   + image cropper + firebase storage
+ 
+ ### project 5: egg_cooker - notifications app
+  + kotlin
+  + Services
+  + Alarm Manager
+  + Broadcast Receivers
+  + Fragment UI
+  
