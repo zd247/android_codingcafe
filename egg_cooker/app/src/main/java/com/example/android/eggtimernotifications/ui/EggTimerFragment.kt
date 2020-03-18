@@ -36,10 +36,7 @@ class EggTimerFragment : Fragment() {
 
     private val TOPIC = "breakfast"
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val binding: FragmentEggTimerBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_egg_timer, container, false
