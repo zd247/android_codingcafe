@@ -39,4 +39,5 @@
   + Broadcast Receivers
   + Fragment UI
 
+### project 6: flexible card view
   
